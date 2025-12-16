@@ -18,10 +18,20 @@
     },
     "android": {
       "package": "com.paymentcollection.app",
+      "versionCode": 1,
       "adaptiveIcon": {
         "backgroundColor": "#6C5CE7"
+      },
+      "permissions": []
+    },
+    "plugins": [],
+    "extra": {
+      "eas": {
+        "projectId": "ab7fac85-491c-48d9-8350-2302dfe951d1"
       }
     },
-    "plugins": []
+    "runtimeVersion": {
+      "policy": "appVersion"
+    }
   }
 }

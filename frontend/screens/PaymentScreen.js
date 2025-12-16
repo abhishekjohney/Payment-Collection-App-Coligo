@@ -94,10 +94,7 @@ export default function PaymentScreen({ route, navigation }) {
 
       // Navigate to confirmation screen
       navigation.navigate('Confirmation', {
-        paymentData: {
-          ...paymentData,
-          ...response,
-        },
+        paymentData: paymentData,
         customerInfo,
       });
 

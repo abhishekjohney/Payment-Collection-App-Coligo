@@ -7,7 +7,22 @@ import {
   TouchableOpacity,
   ActivityIndicator,
 } from 'react-native';
-import { paymentAPI, customerAPI } from '../services/api';
+
+// Mock payment history data
+const MOCK_PAYMENT_HISTORY = {
+  'ACC001': [
+    { id: 1, payment_date: '2024-11-15', payment_amount: 5000, status: 'completed' },
+    { id: 2, payment_date: '2024-10-15', payment_amount: 5000, status: 'completed' },
+  ],
+  'ACC002': [
+    { id: 3, payment_date: '2024-12-01', payment_amount: 7500, status: 'completed' },
+  ],
+  'ACC003': [],
+  'ACC004': [
+    { id: 4, payment_date: '2024-11-20', payment_amount: 10000, status: 'completed' },
+  ],
+  'ACC005': [],
+};
 
 export default function LoanDetailsScreen({ route, navigation }) {
   const [customerData, setCustomerData] = useState(route.params.customer);
@@ -21,38 +36,21 @@ export default function LoanDetailsScreen({ route, navigation }) {
     }
   }, [showHistory]);
 
-  useEffect(() => {
-    // Refresh customer data when screen comes into focus
-    const unsubscribe = navigation.addListener('focus', () => {
-      refreshCustomerData();
-    });
-
-    return unsubscribe;
-  }, [navigation]);
-
-  const refreshCustomerData = async () => {
-    try {
-      const updated = await customerAPI.getCustomerByAccountNumber(customerData.account_number);
-      setCustomerData(updated);
-      // Also refresh payment history if it's showing
-      if (showHistory) {
-        fetchPaymentHistory();
-      }
-    } catch (error) {
-      console.error('Error refreshing customer data:', error);
+  const refreshCustomerData = () => {
+    // No API call needed - data is already in customerData
+    if (showHistory) {
+      fetchPaymentHistory();
     }
   };
 
-  const fetchPaymentHistory = async () => {
-    try {
-      setLoadingHistory(true);
-      const history = await paymentAPI.getPaymentHistory(customerData.account_number);
+  const fetchPaymentHistory = () => {
+    setLoadingHistory(true);
+    // Simulate loading delay
+    setTimeout(() => {
+      const history = MOCK_PAYMENT_HISTORY[customerData.account_number] || [];
       setPaymentHistory(history);
-    } catch (error) {
-      console.error('Error fetching payment history:', error);
-    } finally {
       setLoadingHistory(false);
-    }
+    }, 500);
   };
 
   const formatDate = (dateString) => {
