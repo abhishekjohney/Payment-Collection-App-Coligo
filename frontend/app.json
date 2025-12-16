@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "EMI Collection",
+    "slug": "payment-collection-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#6C5CE7"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.paymentcollection.app"
+    },
+    "android": {
+      "package": "com.paymentcollection.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#6C5CE7"
+      }
+    },
+    "plugins": []
+  }
+}
