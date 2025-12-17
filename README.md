@@ -231,27 +231,8 @@ DB_PORT=3306
    - Use "Pay EMI" to make a payment
    - View payment history
 
-## Sample Data
 
-The application comes with 5 sample customer accounts:
-- ACC001 - John Doe
-- ACC002 - Jane Smith
-- ACC003 - Robert Johnson
-- ACC004 - Emily Davis
-- ACC005 - Michael Brown
 
-Each has sample payment history for testing.
-
-## Future Enhancements (Not Implemented Yet)
-
-- User authentication and authorization
-- Push notifications for payment reminders
-- PDF receipt generation
-- Advanced payment analytics
-- Multiple payment methods
-- Auto-debit setup
-- Email notifications
-- Dark mode support
 
 ## Troubleshooting
 
